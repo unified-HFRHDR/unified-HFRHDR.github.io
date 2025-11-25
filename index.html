@@ -1,62 +1,282 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="description"
+        content="A Unified Framework for High-Frame-Rate High-dynamic-range Video Synthesis">
+  <meta name="keywords" content="video interpolation, HDR video, BMVC 2025, video reconstruction, alternating exposure">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>A Unified Framework for High-Frame-Rate HDR Video Synthesis</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-TVP9N99F');</script>
+  <!-- End Google Tag Manager -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="title">A Unified Framework for High-Frame-Rate HDR Video Synthesis</h1>
-      <p class="subtitle">Real-time HDR reconstruction + temporal interpolation from alternating-exposure video</p>
-      <nav class="links">
-        <a href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_824/paper.pdf" target="_blank">Paper (PDF)</a>
-        <a href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_824/poster.pdf" target="_blank">Poster</a>
-        <a href="#video" target="_blank">Video (placeholder)</a>
-        <a href="https://github.com/huent189/unified-HFR-HDR" target="_blank">Code (@huent189/unified-HFR-HDR)</a>
-      </nav>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TVP9N99F"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">A Unified Framework for High-Frame-Rate HDR Video Synthesis</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://huent189.github.io/">Hue Nguyen</a>,</span>
+            <span class="author-block">
+              <a href="https://jonbarron.info">Trevor D. Canham</a>,
+            </span>
+            <span class="author-block">
+              <a href="http://www.cse.yorku.ca/~mbrown/">Michael S. Brown</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">York University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_824/paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/e_8PVlo_io4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/huent189/unified-HFR-HDR"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/huent189/unified-HFR-HDR"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main class="container">
-    <section id="abstract" class="card">
-      <h2>Abstract</h2>
-      <p>Capturing high dynamic range (HDR) video at high frame rates is critical for applications such as cinematic production and autonomous systems, yet it remains challenging with conventional cameras. We present the first unified framework that jointly performs HDR reconstruction and temporal interpolation from sequences with alternating exposures. Unlike prior work that reconstructs only middle frames or uses heavy off-the-shelf interpolators, our lightweight network synthesizes HDR video at arbitrary timesteps in real time on mid-range GPUs. To support this task, we introduce a new dataset of exposure-bracketed video sequences with real-world motion. To reduce reliance on ground-truth HDR data, we also propose a novel self-supervised training scheme that delivers competitive results. Experiments show our approach outperforms existing baselines in efficiency while achieving comparable or better visual quality, establishing a new benchmark for practical HDR video synthesis.</p>
-    </section>
 
-    <section id="examples" class="card">
-      <h2>Example Results</h2>
-      <p>Below are a few example results (placeholders). Replace these images with your rendered outputs for the final site.</p>
-      <div class="gallery">
-        <figure>
-          <img src="https://via.placeholder.com/800x450?text=Example+1" alt="Example 1" />
-          <figcaption>Example 1 — alternating exposures -> synthesized HDR frame (placeholder)</figcaption>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/e_8PVlo_io4?si=4LD4NgmJrb7AC6Un" width="560" height="315" title="A Unified Framework for High-Frame-Rate HDR Video Synthesis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+  <!--/ Paper video. -->
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          Capturing high dynamic range (HDR) video at high frame rates is critical for applications such as cinematic production and autonomous systems, yet it remains challenging with conventional cameras. We present the first unified framework that jointly performs HDR reconstruction and temporal interpolation from sequences with alternating exposures. Unlike prior work that reconstructs only middle frames or uses heavy off-the-shelf interpolators, our lightweight network synthesizes HDR video at arbitrary timesteps in real time on mid-range GPUs. To support this task, we introduce a new dataset of exposure-bracketed video sequences with real-world motion. To reduce reliance on ground-truth HDR data, we also propose a novel self-supervised training scheme that delivers competitive results. Experiments show our approach outperforms existing baselines in efficiency while achieving comparable or better visual quality, establishing a new benchmark for practical HDR video synthesis.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method</h2>
+        <figure class="image">
+          <img src="./static/images/method.jpg" alt="Method Overview">
         </figure>
-        <figure>
-          <img src="https://via.placeholder.com/800x450?text=Example+2" alt="Example 2" />
-          <figcaption>Example 2 — HDR interpolation across timesteps (placeholder)</figcaption>
-        </figure>
-        <figure>
-          <img src="https://via.placeholder.com/800x450?text=Example 3" alt="Example 3" />
-          <figcaption>Example 3 — real-world motion sequence (placeholder)</figcaption>
+        <div class="content has-text-justified">
+          Figure 2: We introduce a novel network architecture and a self-supervised training frame-
+          work designed to recover both high dynamic range and temporal information from a se-
+          quence of alternating exposures. Unlike conventional HDR video reconstruction models,
+          which are typically limited to recovering only the middle frame, our method is capable of
+          reconstructing an arbitrary frame at any given timestep t.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Dataset</h2>
+
+    <div class="columns is-vcentered">
+      <!-- Left: Big image -->
+      <div class="column">
+        <figure class="image">
+          <img src="./static/images/dataset_overview.jpg" alt="Dataset Overview">
         </figure>
       </div>
-    </section>
 
-    <section id="download" class="card">
-      <h2>Downloads & Resources</h2>
-      <ul>
-        <li><a href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_824/paper.pdf" target="_blank">Paper (PDF)</a></li>
-        <li><a href="https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_824/poster.pdf" target="_blank">Poster (PDF)</a></li>
-        <li><a href="https://github.com/huent189/unified-HFR-HDR" target="_blank">Code repository</a></li>
-      </ul>
-    </section>
+      <!-- Right: 2 x 2 videos -->
+      <div class="column">
+        <div class="columns">
+          <div class="column">
+            <video src="./static/videos/natural_day.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="column">
+            <video src="./static/videos/urban_day.mp4" autoplay loop muted playsinline></video>
+          </div>
+        </div>
 
-    <footer class="card footer">
-      <p>Site generated for the BMVC 2025 paper. Color accent: blue. Hosted on GitHub Pages.</p>
-    </footer>
-  </main>
+        <div class="columns">
+          <div class="column">
+            <video src="./static/videos/urban_night.mp4" autoplay loop muted playsinline></video>
+          </div>
+          <div class="column">
+            <video src="./static/videos/night_urban.mp4" autoplay loop muted playsinline></video>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+        <figure class="image">
+          <img src="./static/images/table1.png" alt="Results Comparison">
+        </figure>
+
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <figure class="image">
+          <img src="./static/images/table2.png" alt="Results Comparison">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Visual Comparison</h2>
+        <figure class="image">
+          <img src="./static/images/qual.jpg" alt="Results Comparison">
+        </figure>
+
+      </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@@inproceedings{Nguyen_2025_BMVC,
+      author    = {Hue Nguyen and Trevor Dalton Canham and Michael S. Brown},
+      title     = {A Unified Framework for High-Frame-Rate HDR Video Synthesis},
+      booktitle = {36th British Machine Vision Conference 2025, {BMVC} 2025, Sheffield, UK, November 24-27, 2025},
+      publisher = {BMVA},
+      year      = {2025},
+      url       = {https://bmva-archive.org.uk/bmvc/2025/assets/papers/Paper_824/paper.pdf}
+      }</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            The website template is from  <a rel="license"
+                                                href="https://nerfies.github.io/">Nerfies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
